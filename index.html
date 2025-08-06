@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L.E.A.N-X™ Digital Transformation Consulting</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+
+
+        :root {
+            --purple-start: #8E2DE2;
+            --purple-end: #4A00E0;
+            --dark-bg: #121212;
+            --light-bg: #1e1e1e;
+            --light-text: #f8f9fa;
+            --muted-text: #adb5bd;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- UTILITIES --- */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            /* border: 2px solid #FFF; */
+            border: 3px solid var(--purple-start);
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--purple-start), var(--purple-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .btn-gradient {
+            background-image: linear-gradient(to right, var(--purple-start) 0%, var(--purple-end) 100%);
+            border: none;
+            color: white;
+            padding: 14px 32px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.5s;
+            background-size: 200% auto;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .btn-gradient:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline-gradient {
+            border: 2px solid var(--purple-start);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-outline-gradient:hover {
+            background-color: var(--purple-start);
+            color: white;
+            border-color: var(--purple-start);
+        }
+
+
+        /* --- SECTIONS --- */
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+        }
+
+        #hero .lead {
+            font-size: 1.25rem;
+            color: var(--muted-text);
+        }
+        
+        .problem-list li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-list .bi {
+            color: #dc3545;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        .lean-step-card {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .lean-step-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--purple-start);
+        }
+        
+        .lean-step-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card {
+            background-color: var(--light-bg);
+            border: 1px solid #333;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--purple-end);
+            box-shadow: 0 0 25px rgba(74, 0, 224, 0.3);
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--purple-start);
+        }
+        
+        .testimonial-card footer {
+            color: var(--muted-text);
+            font-weight: bold;
+        }
+
+        .case-study-kpis li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .case-study-kpis .bi {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        #about img {
+            max-width: 250px;
+            box-shadow: 0 0 30px rgba(142, 45, 226, 0.3);
+        }
+        
+        #footer {
+            background-color: #000;
+        }
+
+        #footer .form-control {
+            background-color: #222;
+            border-color: #444;
+            color: white;
+        }
+
+        #footer .form-control::placeholder {
+            color: var(--muted-text);
+        }
+
+        .social-icons a {
+            color: var(--muted-text);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--purple-start);
+        }
+        
+        /* Optional Cookie Consent */
+        #cookie-consent {
+            background-color: var(--light-bg);
+            color: var(--muted-text);
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="100">
+
+    <nav id="navbar-main" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="#hero">Cut <span class="text-gradient">Digital Waste.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#problem">The Problem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solution">The Solution</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#casestudy">Case Study</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-gradient ms-lg-3">Book Free Audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="d-flex align-items-center min-vh-100 section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="display-3 fw-bolder">Cut <span class="text-gradient">Digital Waste.</span> Grow Smarter.</h1>
+                    <p class="lead my-4">We help CIOs and business leaders eliminate inefficiency and unlock ROI through our 
+                        <span class="fw-bold text-white">L.E.A.N-X™</span> transformation method.</p>
+                    <a href="#contact" class="btn btn-gradient btn-lg">
+                        <i class="bi bi-search"></i> Book Free Digital Waste Audit
+                    </a>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3oGI4CMX4LE?si=BYun2lNayDt_Zc9d" title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                    </div>
+                    
+
+                    <!-- <svg width="100%" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svgTitle svgDesc">
+    <title id="svgTitle">L.E.A.N-X Method Diagram</title>
+    <desc id="svgDesc">An abstract diagram showing chaotic lines entering a five-stage funnel and emerging as streamlined, orderly lines, representing the process of digital transformation and waste elimination.</desc>
+    
+    <defs>
+        <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#8E2DE2;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#4A00E0;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <circle cx="400" cy="200" r="300" fill="#1e1e1e" opacity="0.2"/>
+    <circle cx="400" cy="200" r="250" stroke="#333" stroke-width="1" stroke-dasharray="4 8"/>
+
+    <g id="chaos" stroke="#adb5bd" stroke-width="2" stroke-linecap="round">
+        <path d="M 50 100 C 150 50, 150 150, 250 200" />
+        <path d="M 60 300 C 120 350, 180 250, 250 200" />
+        <path d="M 70 150 C 100 250, 200 100, 250 200" />
+        <path d="M 80 250 C 180 300, 120 50, 250 200" />
+        <path d="M 90 50 C 190 100, 150 350, 250 200" />
+    </g>
+
+    <g id="funnel-process">
+        <path d="M 250 100 L 350 150 L 350 250 L 250 300 Z" fill="url(#purpleGradient)" opacity="0.4"/>
+        <path d="M 350 150 L 450 175 L 450 225 L 350 250 Z" fill="url(#purpleGradient)" opacity="0.6"/>
+        <path d="M 450 175 L 550 190 L 550 210 L 450 225 Z" fill="url(#purpleGradient)" opacity="0.8"/>
+        <path d="M 550 190 L 650 195 L 650 205 L 550 210 Z" fill="url(#purpleGradient)" opacity="1"/>
+        
+        <path d="M 250 100 L 350 150 L 450 175 L 550 190 L 650 195" stroke="#f8f9fa" stroke-width="1.5"/>
+        <path d="M 250 300 L 350 250 L 450 225 L 550 210 L 650 205" stroke="#f8f9fa" stroke-width="1.5"/>
+        
+        <line x1="350" y1="150" x2="350" y2="250" stroke="#f8f9fa" stroke-width="1" stroke-dasharray="2 4"/>
+        <line x1="450" y1="175" x2="450" y2="225" stroke="#f8f9fa" stroke-width="1" stroke-dasharray="2 4"/>
+        <line x1="550" y1="190" x2="550" y2="210" stroke="#f8f9fa" stroke-width="1" stroke-dasharray="2 4"/>
+    </g>
+
+    <g id="order" stroke="#f8f9fa" stroke-width="4" stroke-linecap="round">
+        <path d="M 650 200 H 730" />
+        <path d="M 650 200 H 730" transform="translate(0, -20)" stroke-opacity="0.7"/>
+        <path d="M 650 200 H 730" transform="translate(0, 20)" stroke-opacity="0.7"/>
+    </g>
+    
+    <g id="growth-arrow" fill="#f8f9fa">
+        <path d="M 730 190 L 750 200 L 730 210 Z" />
+    </g>
+
+</svg> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem" class="section-padding bg-black">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold">Is Your Digital Ecosystem Holding You Back?</h2>
+                    <p class="fs-5 mb-5">Most SMEs waste thousands on unused software, legacy tools, and bloated processes.</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <ul class="list-unstyled problem-list">
+                        <li><i class="bi bi-x-circle-fill"></i> Unused software licenses bleeding your budget.</li>
+                        <li><i class="bi bi-x-circle-fill"></i> Hours lost to manual, error-prone reporting.</li>
+                        <li><i class="bi bi-x-circle-fill"></i> Disconnected systems that create data silos.</li>
+                        <li><i class="bi bi-x-circle-fill"></i> Complex, undocumented workflows that kill productivity.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 text-center p-5 rounded" style="background-color: var(--light-bg);">
+                     <h3 class="fw-bold">Find Your Inefficiencies.</h3>
+                     <p>Our free audit pinpoints exactly where you're losing money and time.</p>
+                     <a href="#contact" class="btn btn-gradient">Audit Your Organization Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">The Solution: <span class="text-gradient">L.E.A.N-X™</span> Framework</h2>
+                <p class="lead">A Proven 5-Step Method to Save Time, Cut Costs & Prepare for Scalable Growth</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg col-md-6"><div class="lean-step-card"><div class="icon text-gradient"><i class="bi bi-clipboard-data"></i></div><h3 class="fs-5 fw-bold">Learn</h3><p>Map waste hotspots with our comprehensive audit process.</p></div></div>
+                <div class="col-lg col-md-6"><div class="lean-step-card"><div class="icon text-gradient"><i class="bi bi-trash"></i></div><h3 class="fs-5 fw-bold">Eliminate</h3><p >Cut redundant tools, licenses, and manual tasks.</p></div></div>
+                <div class="col-lg col-md-6"><div class="lean-step-card"><div class="icon text-gradient"><i class="bi bi-robot"></i></div><h3 class="fs-5 fw-bold">Automate</h3><p >Implement workflows that run on their own, 24/7.</p></div></div>
+                <div class="col-lg col-md-6"><div class="lean-step-card"><div class="icon text-gradient"><i class="bi bi-check2-circle"></i></div><h3 class="fs-5 fw-bold">Normalize</h3><p>Create new SOPs and train teams for peak efficiency.</p></div></div>
+                <div class="col-lg col-md-12"><div class="lean-step-card"><div class="icon text-gradient"><i class="bi bi-graph-up-arrow"></i></div><h3 class="fs-5 fw-bold">eXcel</h3><p>Monitor KPIs and continuously optimize for growth.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section-padding" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">What You Get</h2>
+                <p class="lead">Choose the path that's right for your transformation journey.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body p-5 d-flex flex-column text-white">
+                            <h3 class="fw-bold">Audit Only</h3>
+                            <p>A comprehensive look under the hood.</p>
+                            <h4 class="display-4 fw-bold my-3">€0 <span class="fs-6">/ Free</span></h4>
+                            <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Digital Waste Report</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Actionable Recommendations</li>
+                            </ul>
+                             <div class="mt-auto">
+                                <a href="#contact" class="btn btn-outline-gradient w-100">Start with a Free Audit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card pricing-card featured h-100">
+                         <div class="card-header text-center py-3 fw-bold text-gradient">MOST POPULAR</div>
+                        <div class="card-body p-5 d-flex flex-column text-white">
+                            <h3 class="fw-bold">30-Day Sprint</h3>
+                            <p>Full execution for rapid results.</p>
+                            <h4 class="display-4 fw-bold my-3">€2.5 - 5K</h4>
+                             <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Full L.E.A.N-X™ Execution</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>New SOPs & Documentation</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Custom Performance Dashboards</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <a href="#contact" class="btn btn-gradient w-100"><i class="bi bi-puzzle"></i> Book a Strategy Call</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body p-5 d-flex flex-column text-white">
+                            <h3 class="fw-bold">Ongoing Support</h3>
+                            <p>Your dedicated transformation partner.</p>
+                            <h4 class="display-4 fw-bold my-3">€1.5K<span class="fs-6">/month</span></h4>
+                             <ul class="list-unstyled mb-4">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Monthly Coaching Calls</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Implementation Support</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Continuous Optimization</li>
+                            </ul>
+                            <div class="mt-auto">
+                                <a href="#contact" class="btn btn-outline-gradient w-100">Discuss Partnership</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Don't Just Take Our Word For It</h2>
+                <p class="lead">See how we've impacted businesses like yours.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <blockquote class="blockquote fs-5">
+                            <i class="bi bi-quote fs-1 text-gradient"></i>
+                            <p>"We cut 42% of unnecessary IT cost in 30 days using the L.E.A.N-X™ Audit. It was the highest ROI project we ran all year."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-3">Jane Doe, COO at <cite title="Source Title">TechSolutions Inc.</cite></footer>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <blockquote class="blockquote fs-5">
+                             <i class="bi bi-quote fs-1 text-gradient"></i>
+                            <p>"The process automation sprint saved our operations team over 20 hours per week. It's completely transformed how we work."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-3">John Smith, CEO at <cite title="Source Title">Innovate Co.</cite></footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="casestudy" class="section-padding" style="background-color: var(--light-bg);">
+        <div class="container">
+             <div class="text-center mb-5">
+                <h2 class="fw-bold">From <span class="text-gradient">Chaos to Clarity</span></h2>
+            </div>
+            <div class="row align-items-center g-5 mt-3">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold">Case Study: How a SaaS company saved €34K/year in under 3 weeks.</h3>
+                    <p>They were battling rising cloud costs and slow manual processes. We applied the L.E.A.N-X™ method to identify and eliminate waste.</p>
+                    <ul class="list-unstyled case-study-kpis mt-4">
+                        <li><i class="bi bi-arrow-down-circle text-success"></i> <strong>Software Spend:</strong> Reduced by 28%</li>
+                        <li><i class="bi bi-arrow-up-circle text-success"></i> <strong>Reporting Speed:</strong> Increased by 90% (from 8 hours to 30 mins)</li>
+                        <li><i class="bi bi-arrow-up-circle text-success"></i> <strong>Annual ROI:</strong> 540%</li>
+                    </ul>
+                    <button class="btn btn-gradient mt-3" data-bs-toggle="modal" data-bs-target="#caseStudyModal">
+                        <i class="bi bi-file-earmark-pdf"></i> Download Full Case Study
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <img src="./images/saas-cost-optimization.jpg" alt="Before and After Sankey Diagram showing cost savings" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-4 text-center">
+                    <img src="https://i.ibb.co/3cYfG2R/profile-pic-placeholder.png" alt="Satya Neerupudi" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="fw-bold text-gradient">Satya Neerupudi</h2>
+                    <p class="lead">Founder & Principal Consultant</p>
+                    <p>With over 25 years leading digital transformation in demanding sectors like aviation, energy, and IT, I've seen firsthand how technology can either be a powerful enabler or a source of immense waste.</p>
+                    <blockquote class="fs-5 p-3 my-4 rounded" style="border-left: 3px solid var(--purple-start); background-color: var(--light-bg);">
+                        “I created the L.E.A.N-X™ method to help organizations transform without the tech bloat or team burnout that plagues so many projects.”
+                    </blockquote>
+                    <div>
+                        <a href="#" class="btn btn-gradient me-2 mb-2"><i class="bi bi-linkedin"></i> Connect on LinkedIn</a>
+                        <a href="#contact" class="btn btn-outline-gradient"><i class="bi bi-calendar-check"></i> Book Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact" class="section-padding" style="background-color: #000;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="fw-bold">Ready to Eliminate Digital Waste?</h2>
+                <p class="lead">Book your free, no-obligation audit directly on my calendar.</p>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10">
+                    <div class="calendly-placeholder" style="border: 2px dashed #444; height: 650px; border-radius: 15px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px;">
+                        <div>
+                            <i class="bi bi-calendar3 fs-1 text-gradient"></i>
+                            <h4 class="mt-3">Calendly Embed Area</h4>
+                            <p>Replace this div with your inline embed code from Calendly for a seamless booking experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                 <p class="mb-3">Or, use another method:</p>
+                 <a href="#" class="btn btn-gradient mb-3" data-bs-toggle="modal" data-bs-target="#leadMagnetModal"><i class="bi bi-download"></i> Download: "Top 10 Digital Wastes" PDF</a>
+                 <a href="mailto:info@yourdomain.com" class="btn btn-outline-gradient mb-3"><i class="bi bi-envelope"></i> Email: info@yourdomain.com</a>
+                 
+                 <div class="social-icons mt-4">
+                     <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                     <a href="#" aria-label="Twitter X"><i class="bi bi-twitter-x"></i></a>
+                     <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                 </div>
+            </div>
+            <hr class="my-5" style="border-color: #333;">
+            <div class="text-center">
+                <p>&copy; 2025 L.E.A.N-X™ Consulting. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="modal fade" id="caseStudyModal" tabindex="-1" aria-labelledby="caseStudyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: var(--light-bg); border-color: #333;">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="caseStudyModalLabel">Get the <span class="text-gradient">Full Case Study</span></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body mb-5">
+            <p>Enter your email to receive the full PDF report in your inbox.</p>
+            <form>
+              <div class="mb-3">
+                <label for="modal-email-1" class="form-label">Email address</label>
+                <input type="email" class="form-control rounded-pill" id="modal-email-1" placeholder="you@company.com" required>
+              </div>
+              <button type="submit" class="btn btn-gradient w-100">Download Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="leadMagnetModal" tabindex="-1" aria-labelledby="leadMagnetModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: var(--light-bg); border-color: #333;">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="leadMagnetModalLabel">Download the <span class="text-gradient">"Top 10 Digital Wastes"</span> PDF</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body mb-5">
+            <p>Get our free guide to the most common (and costly) digital wastes we find in SMEs.</p>
+            <form>
+              <div class="mb-3">
+                <label for="modal-email-2" class="form-label">Email address</label>
+                <input type="email" class="form-control rounded-pill" id="modal-email-2" placeholder="you@company.com" required>
+              </div>
+              <button type="submit" class="btn btn-gradient w-100">Send me the PDF</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cookie-consent">
+        <p class="mb-0 me-3">This website uses cookies to ensure you get the best experience. <a href="#" class="text-white">Learn more</a>.</p>
+        <button id="accept-cookies" class="btn btn-gradient btn-sm">Accept</button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookie-consent');
+            const acceptButton = document.getElementById('accept-cookies');
+
+            // Check if user has already accepted cookies
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.style.display = 'flex';
+            } else {
+                 cookieBanner.style.display = 'none';
+            }
+
+            acceptButton.addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.style.display = 'none';
+            });
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+<button id="scrollToTop" aria-label="Scroll to top" class="scroll-top-btn" type="button">
+  <!-- You can use SVG or Unicode: -->
+  <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 19V5M12 5l-7 7M12 5l7 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<style>
+    .scroll-top-btn {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 3500;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(90deg,#7f53ac,#a684f9);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 18px rgba(98,70,234,.19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .22s, visibility .22s;
+  pointer-events: none;
+}
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+.scroll-top-btn:hover, .scroll-top-btn:focus {
+  background: linear-gradient(90deg,#a684f9,#6247ea);
+  box-shadow: 0 4px 22px rgba(98,70,234,.29);
+  outline: none;
+}
+
+</style>
+
+<script>
+  // Show/hide scroll to top button
+  window.addEventListener('scroll', function() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
+  // Scroll to top smoothly
+  document.getElementById('scrollToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+
+</body>
+</html>
